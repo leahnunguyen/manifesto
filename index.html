@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manifesto</title>
+
+  <!-- Boldonse font -->
+  <link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: #B9E6F1;
+      font-family: 'Boldonse', sans-serif;
+    }
+
+    .manifesto {
+      padding: 80px;
+    }
+
+    /* ALL TEXT BOLDER */
+    .line {
+      font-size: 120px;          /* bigger = bolder */
+      margin: 6px 0;
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: 4px;
+      text-shadow:
+        2px 2px 0 rgba(0,0,0,0.15),
+        4px 4px 0 rgba(0,0,0,0.1);
+    }
+
+    .hard {
+      color: #000;
+    }
+
+    .nice {
+      color: #F1B9E6;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .nice:hover {
+      transform: translateX(16px);
+      color: #E6F1B9;
+    }
+
+    .repeat {
+      margin-top: 56px;
+      font-size: 26px;
+      letter-spacing: 4px;
+      color: #000;
+      opacity: 0.75;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+    }
+
+    button {
+      margin-top: 56px;
+      padding: 18px 36px;
+      font-size: 18px;
+      font-family: 'Boldonse', sans-serif;
+      text-transform: uppercase;
+      background: #F1B9E6;
+      border: none;
+      cursor: pointer;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.15);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: #E6F1B9;
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="manifesto">
+    <div class="line hard">WORK HARD</div>
+    <div class="line nice">AND BE NICE</div>
+    <div class="line hard">TO PEOPLE</div>
+
+    <div class="repeat">
+      WORK HARD · BE NICE · WORK HARD · BE NICE ·
+    </div>
+
+    <button id="push">WORK MORE</button>
+  </div>
+
+  <script>
+    const lines = document.querySelectorAll('.line');
+    const button = document.getElementById('push');
+
+    button.addEventListener('click', () => {
+      lines.forEach(line => {
+        const shake = Math.random() * 16 - 8;
+        line.style.transform = `translateX(${shake}px)`;
+      });
+    });
+  </script>
+</body>
+</html>
